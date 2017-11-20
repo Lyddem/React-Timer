@@ -1,0 +1,24 @@
+body {
+  background-color: #FFF
+}
+
+input {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#timer {
+  border: 2px solid black;
+  padding: 20px;
+  height: 160px;
+  width: 275px;
+}
+
+#output {
+  /*border: 1px solid black;
+  margin-bottom: 10px;
+  margin-left: 86px;
+  margin: 10px;
+  height: 30px;
+  width: 140px;
+*/}
