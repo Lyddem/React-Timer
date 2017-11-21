@@ -23,7 +23,13 @@ class App extends React.Component {
 
   handleTimeout() {
 
-  let test = --this.state.startSec; //'3661'
+    if(this.state.start === this.state.end) {
+      this.setState({ start: '00:00:00' })
+      alert('Time!');
+      return;
+    }
+
+  let test = --this.state.startSec;
 
   function pad(num) {
     return ("0" + num).slice(-2);
@@ -45,7 +51,6 @@ class App extends React.Component {
     this.setState({
       start: final
     })
-    // render state.startSec
   }
 
   clicked() {
@@ -56,17 +61,14 @@ class App extends React.Component {
     let end = this.state.end.split(":");
     let startSec = (Number(start[0]) * 3600) + (Number(start[1]) * 60) + (Number(start[2]));
     let endSec = (Number(end[0]) * 3600) + (Number(end[1]) * 60) + (Number(end[2]));
+
     // validate inputs
     if(!validStart || !validEnd) { alert('please use format HH:MM:SS') }
     if(endSec > startSec) {
       alert('Please make end time less than start time!');
     }
-    this.setState({ startSec: startSec }); //won't register untill second button click
+    this.setState({ startSec: startSec });
 
-    if(startSec > endSec) {
-      console.log('state startSec', this.state.startSec);
-      console.log('startSec', startSec);
-    }
     if(this.currentInterval) {
       clearInterval(this.currentInterval);
     }
